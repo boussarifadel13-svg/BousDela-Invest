@@ -3,11 +3,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://www.ton-domaine.com/</loc>
-    </url>
-
-    <url>
-        <loc>https://www.ton-domaine.com/actualites.html</loc>
+        <loc>https://bousdel-invest.site/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
     </url>
 
 </urlset>
