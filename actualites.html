@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Actualités financières | BOUSDELA INVEST</title>
+
+    <meta name="description" content="Découvrez les dernières actualités financières, analyses du Forex, cryptomonnaies, marchés actions, matières premières et macroéconomie sur BOUSDELA INVEST.">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Partage sur les réseaux sociaux -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Actualités financières | BOUSDELA INVEST">
+    <meta property="og:description" content="Suivez l'actualité des marchés financiers et découvrez nos analyses.">
+    <meta property="og:site_name" content="BOUSDELA INVEST">
+
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+
+<body>
+
+   
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+        <img
+            src="image/logo.png"
+            alt="BOUSDELA INVESTMENT"
+            class="brand-logo"
+        >
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="profil.html">Mon profil</a></li>
+            <li><a href="actualites.html?categorie=forex">Forex</a></li>
+            <li><a href="actualites.html?categorie=crypto">Crypto</a></li>
+            <li><a href="actualites.html?categorie=actions">Actions</a></li>
+            <li><a href="actualites.html?categorie=matieres-premieres">Matières premières</a></li>
+            <li><a href="actualites.html?categorie=macroeconomie">Macroéconomie</a></li>
+        </ul>
+    </nav>
+
+    
+
+</header>
+
+
+   <main id="contenu-protege" hidden>
+
+        <section class="news-header">
+            <h1>Actualités financières</h1>
+            <p>Restez informé des événements qui influencent les marchés.</p>
+        </section>
+
+        <section class="news-search container">
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="Rechercher une actualité..."
+                          >
+       </section>
+        
+          <section class="news-filters container">
+    <h2>Catégories</h2>
+
+    <div class="categories">
+        <a href="#" data-filter="all" class="active">Toutes</a>
+        <a href="#" data-filter="forex">Forex</a>
+        <a href="#" data-filter="crypto">Crypto</a>
+        <a href="#" data-filter="actions">Actions</a>
+        <a href="#" data-filter="matieres-premieres">Matières premières</a>
+        <a href="#" data-filter="macroeconomie">Macroéconomie</a>
+    </div>
+</section>
+         <section class="news-list container">
+
+    <h2 class="section-title">Dernières publications</h2>
+
+    <div class="news-grid">
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BOUSDELA INVEST. Tous droits réservés.</p>
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
+

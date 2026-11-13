@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administration | BOUSDELA INVEST</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+
+
+<body>
+
+    <!-- EN-TÊTE ADMINISTRATION -->
+    <header class="admin-header">
+
+        <a href="index.html" class="brand">
+            <img
+                src="image/logo.png"
+                alt="BOUSDELA INVESTMENT"
+                class="brand-logo"
+            >
+        </a>
+
+        <div class="nav-buttons">
+            <a href="index.html">Voir le site</a>
+            <a href="profil.html" class="btn">Mon profil</a>
+        </div>
+
+    </header>
+
+
+    <!-- TABLEAU DE BORD -->
+    <main class="dashboard" id="administration-protegee" hidden>
+        <!-- MENU LATÉRAL -->
+        <aside class="admin-sidebar">
+
+            <h2>Administration</h2>
+
+            <nav>
+                <ul>
+
+                    <li>
+                        <a href="#dashboard">Tableau de bord</a>
+                    </li>
+
+                    <li>
+                        <a href="#articles">Gestion des articles</a>
+                    </li>
+
+                    <li>
+                        <a href="#publication">Créer un article</a>
+                    </li>
+
+                    <li>
+                        <a href="#users">Utilisateurs</a>
+                    </li>
+
+                    <li>
+                        <a href="#settings">Paramètres</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </aside>
+
+
+        <!-- CONTENU PRINCIPAL -->
+        <section class="admin-content">
+
+
+            <!-- 1. TABLEAU DE BORD -->
+            <section id="dashboard">
+
+                <h1>Tableau de bord</h1>
+
+                <p>
+                    Bienvenue dans l'espace d'administration
+                    de BOUSDELA INVEST.
+                </p>
+
+                <div class="dashboard-stats">
+
+                    <article class="stat-card">
+                        <h3>Articles publiés</h3>
+                        <p>0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Brouillons</h3>
+                        <p>0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Utilisateurs</h3>
+                        <p>0</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- 2. GESTION DES ARTICLES -->
+            <section id="articles">
+
+                <h2>Gestion des articles</h2>
+
+                <p>
+                    Consulte et organise les publications
+                    de la plateforme.
+                </p>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Catégorie</th>
+                                <th>Statut</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="articles-table-body">
+
+        <tr>
+        <td colspan="4">Chargement des articles...</td>
+                 </tr>
+
+                </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- 3. CRÉATION D'ARTICLE -->
+            <section id="publication">
+
+                <h2>Créer un article</h2>
+
+                <form id="article-form">
+
+                    <div class="form-group">
+
+                        <label for="article-title">
+                            Titre de l'article
+                        </label>
+
+                        <input
+                            type="text"
+                            id="article-title"
+                            name="title"
+                            placeholder="Entrez le titre"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="article-category">
+                            Catégorie
+                        </label>
+
+                        <select
+                            id="article-category"
+                            name="category"
+                            required
+                        >
+
+                            <option value="">
+                                Choisir une catégorie
+                            </option>
+
+                            <option value="forex">Forex</option>
+
+                            <option value="crypto">Crypto</option>
+
+                            <option value="actions">Actions</option>
+
+                            <option value="matieres-premieres">
+                                Matières premières
+                            </option>
+
+                            <option value="macroeconomie">
+                                Macroéconomie
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    
+<div class="form-group">
+
+    <label for="article-image">
+        Image de couverture
+    </label>
+
+    <input
+        type="file"
+        id="article-image"
+        name="image"
+        accept="image/jpeg, image/png, image/webp"
+    >
+
+    <div id="image-preview-container" style="display: none; margin-top: 15px;">
+
+        <p>Aperçu de l'image :</p>
+
+        <img
+            id="image-preview"
+            src=""
+            alt="Prévisualisation de l'image"
+            style="max-width: 100%; width: 350px; border-radius: 10px;"
+        >
+
+    </div>
+
+</div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="article-summary">
+                            Résumé
+                        </label>
+
+                        <textarea
+                            id="article-summary"
+                            name="summary"
+                            rows="3"
+                            placeholder="Résumé de l'actualité..."
+                            required
+                        ></textarea>
+
+                    </div>
+                        
+                         
+                    <div class="form-group">
+
+                        <label for="article-content">
+                            Contenu de l'article
+                        </label>
+
+                        <textarea
+                            id="article-content"
+                            name="content"
+                            rows="10"
+                            placeholder="Rédigez votre article..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="article-source">
+                            Source de l'information
+                        </label>
+
+                        <input
+                            type="url"
+                            id="article-source"
+                            name="source"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+
+                    <button type="submit" class="btn">
+                        Publier l'article
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- 4. UTILISATEURS -->
+            <section id="users">
+
+                <h2>Gestion des utilisateurs</h2>
+
+                <p>
+                    Consulte les membres inscrits sur la plateforme.
+                </p>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>E-mail</th>
+                                <th>Rôle</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Aucun utilisateur</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td>—</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- 5. PARAMÈTRES -->
+            <section id="settings">
+
+                <h2>Paramètres</h2>
+
+                <p>
+                    Configure les informations générales
+                    de BOUSDELA INVEST.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="site-name">
+                        Nom de la plateforme
+                    </label>
+
+                    <input
+                        type="text"
+                        id="site-name"
+                        value="BOUSDELA INVEST"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="site-description">
+                        Slogan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="site-description"
+                        value="L'information qui éclaire vos décisions."
+                    >
+
+                </div>
+
+                <button type="button" class="btn">
+                    Enregistrer les paramètres
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIED DE PAGE -->
+    <footer>
+
+        <p>
+            &copy; 2026 BOUSDELA INVEST.
+            Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
