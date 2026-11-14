@@ -1129,7 +1129,7 @@ async function protegerAdministration() {
     contenu.hidden = false;
 
     console.log("Accès administration autorisé.");
-
+await chargerUtilisateursAdministration();
 }
 
 function initialiserApercuImage() {
@@ -1374,5 +1374,97 @@ async function modifierArticle(id) {
     } catch (erreur) {
         console.error("Erreur de chargement de l'article :", erreur);
         alert("Impossible de charger cet article : " + erreur.message);
+    }
+}
+
+/* =====================================================
+   15. GESTION DES UTILISATEURS
+===================================================== */
+
+async function chargerUtilisateursAdministration() {
+
+    const tableau = document.getElementById("users-table-body");
+    const compteur = document.getElementById("users-count");
+
+    if (!tableau) return;
+
+    tableau.innerHTML = `
+        <tr>
+            <td colspan="4">Chargement des utilisateurs...</td>
+        </tr>
+    `;
+
+    try {
+
+        const { data: utilisateurs, error } = await supabaseClient
+            .from("profiles")
+            .select("id, full_name, email, role, created_at")
+            .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        const liste = utilisateurs || [];
+
+        if (compteur) {
+            compteur.textContent = liste.length;
+        }
+
+        if (liste.length === 0) {
+            tableau.innerHTML = `
+                <tr>
+                    <td colspan="4">Aucun utilisateur inscrit.</td>
+                </tr>
+            `;
+            return;
+        }
+
+        tableau.replaceChildren();
+
+        liste.forEach(function(utilisateur) {
+
+            const ligne = document.createElement("tr");
+
+            const celluleNom = document.createElement("td");
+            celluleNom.textContent =
+                utilisateur.full_name || "Nom non renseigné";
+
+            const celluleEmail = document.createElement("td");
+            celluleEmail.textContent =
+                utilisateur.email || "E-mail indisponible";
+
+            const celluleRole = document.createElement("td");
+            celluleRole.textContent =
+                utilisateur.role || "Non défini";
+
+            const celluleDate = document.createElement("td");
+            celluleDate.textContent = utilisateur.created_at
+                ? new Date(utilisateur.created_at).toLocaleDateString("fr-FR")
+                : "Non disponible";
+
+            ligne.append(
+                celluleNom,
+                celluleEmail,
+                celluleRole,
+                celluleDate
+            );
+
+            tableau.appendChild(ligne);
+
+        });
+
+    } catch (erreur) {
+
+        console.error("Erreur de chargement des utilisateurs :", erreur);
+
+        if (compteur) compteur.textContent = "—";
+
+        tableau.innerHTML = `
+            <tr>
+                <td colspan="4">
+                    Impossible de charger les utilisateurs.
+                    Vérifie les permissions RLS de la table profiles.
+                </td>
+            </tr>
+        `;
     }
 }
