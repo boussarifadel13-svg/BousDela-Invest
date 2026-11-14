@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     initialiserParametres();
     protegerPageActualites();
     protegerAdministration();
-    await chargerUtilisateursAdministration();
+    chargerUtilisateursAdministration();
     initialiserApercuImage();
 });
 
@@ -1129,6 +1129,8 @@ async function protegerAdministration() {
     contenu.hidden = false;
 
     console.log("Accès administration autorisé.");
+    
+   await chargerArticlesAdministration();
 await chargerUtilisateursAdministration();
 }
 
