@@ -70,7 +70,7 @@ function nomCategorie(categorie) {
    2. INITIALISATION
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
 
     initialiserNavigation();
     initialiserActualites();
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initialiserParametres();
     protegerPageActualites();
     protegerAdministration();
-    chargerArticlesAdministration();
+    await chargerUtilisateursAdministration();
     initialiserApercuImage();
 });
 
@@ -1200,6 +1200,18 @@ async function chargerArticlesAdministration() {
             .order("created_at", { ascending: false });
 
         if (error) throw error;
+        // Calculer le nombre réel d'articles publiés.
+const nombrePublies = articles.filter(function(article) {
+    return article.status === "published";
+}).length;
+
+const compteurPublies = document.getElementById(
+    "articles-publies-count"
+);
+
+if (compteurPublies) {
+    compteurPublies.textContent = nombrePublies;
+}
 
         if (!articles || articles.length === 0) {
             tableau.innerHTML = `
